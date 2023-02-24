@@ -1,0 +1,42 @@
+
+
+body {
+    background-color: #87CEEB;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+
+nav {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid white;
+    padding-bottom: 0.5em;
+}
+
+
+.nav-ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    margin-bottom: 0;
+    width: 18.75em;
+
+    
+}
+
+.btn-nav {
+    font-family: inherit;
+    border: none;
+    background-color: white;
+    color: #4169E1;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.logo {
+    margin: 0;
+    color: white;
+}
