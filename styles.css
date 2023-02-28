@@ -36,7 +36,52 @@ nav {
     font-weight: 700;
 }
 
+.btn-nav:hover {
+    cursor: pointer;
+    background-color: #4169E1;
+    color: white;
+}
+
 .logo {
     margin: 0;
     color: white;
 }
+
+.main-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 350px;
+}
+
+
+.main-cont p {
+    font-size: 32px;
+}
+
+
+.loc-weather {
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-cont {
+    display: flex;
+    justify-content: space-around;
+    max-width: 100px;
+    align-items: center;
+    /* flex-direction: row; */
+}
+
+.weather-img {
+    width: 62px;
+    height: 62px;
+    
+}
+
+.loc-text {
+    margin: 0;
+}
+
+
