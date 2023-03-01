@@ -35,7 +35,7 @@ async function getWeatherData() {
     // console.log(data)
     // console.log(data.weather[0].description);
     const iconString = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-    console.log(data);
+    // console.log(data);
     return [Math.round(data.main.temp), iconString, data.name, data.weather[0].description];
 }
 
@@ -45,7 +45,7 @@ async function renderTodayWeather() {
     const weatherData = await getWeatherData();
     
     const mainHtml = new Array(2).fill('0')     /*----why all this trouble though */
-        .map((item, index)=> index === 0? `<h2 id='time'>${timeData.time}</h2>`:
+        .map((item, index)=> index === 0? `<h2 id='time' class='time'>${timeData.time}</h2>`:
         `<div class='loc-weather'>
         <h2 class='loc-text'>${weatherData[2]}</h2>
         <div class='weather-cont'>
@@ -67,7 +67,7 @@ async function getRenderImg() {
     const topic = `?query=${weatherData[3]},${timeOfDay},nature&orientation=portrait`
     const response = await fetch(randomImg + topic + key);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     document.getElementById('img-cont').innerHTML = `<img class='img' src='${data.urls.regular}'/>`
 };
 

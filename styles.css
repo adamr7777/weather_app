@@ -7,6 +7,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     color: white;
+    /* box-sizing: border-box; */
 }
 
 
@@ -41,8 +42,13 @@ nav {
 
 .btn-nav:hover {
     cursor: pointer;
-    background-color: #4169E1;
+    background-color: #FF69B4;
     color: white;
+}
+
+.btn-nav:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .logo {
@@ -68,7 +74,12 @@ nav {
 .loc-weather {
     display: flex;
     flex-direction: column;
+    background-color: #7d51b9;
     margin-bottom: 1em;
+    border-radius: 20px;
+    padding: 1em 6em;
+    padding-bottom: 0.3em;
+    /* opacity: 0.5; */
 }
 
 .weather-cont {
@@ -82,7 +93,6 @@ nav {
 .weather-img {
     width: 62px;
     height: 62px;
-    
 }
 
 .loc-text {
@@ -97,8 +107,9 @@ nav {
 }
 
 .img {
-    width: 100%;
+    width: 99.1%; /*98.6%*/
     height: 100%;
+    border: 3px solid #7d51b9;
 }
 
 footer {
@@ -108,3 +119,9 @@ footer {
     text-align: right;
 }
 
+/* @media(min-width: 600px) {
+    .big-div {
+        display: flex;
+        flex-direction: row;
+    }
+} */
