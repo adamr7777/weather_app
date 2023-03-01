@@ -19,17 +19,17 @@ function checkDay() {
     return hours >= 6 && hours < 12? 'morning': hours >= 12 && hours < 18? 'day': hours >= 18 && hours < 23? 'evening': 'night';
 }
 
-async function getLatlong() {
-    const position = await new Promise((resolve, reject)=> {
-        navigator.geolocation.getCurrentPosition(resolve,reject)
-    });
+function getLatlong() {     /*add await */
+    // const position = await new Promise((resolve, reject)=> {
+    //     navigator.geolocation.getCurrentPosition(resolve,reject)
+    // });
     // return [position.coords.latitude, position.coords.longitude];       /*for now the location is fixed */
     return [51.50722, -0.1275]
 }
 
 
 async function getWeatherData() {
-    const location = await getLatlong();
+    const location = getLatlong();
    
     const response = await fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${location[0]}&lon=${location[1]}&units=metric`);
     const data = await response.json();         /*catch error */
