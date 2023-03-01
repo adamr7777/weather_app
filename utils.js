@@ -23,7 +23,8 @@ async function getLatlong() {
     const position = await new Promise((resolve, reject)=> {
         navigator.geolocation.getCurrentPosition(resolve,reject)
     });
-    return [position.coords.latitude, position.coords.longitude];
+    // return [position.coords.latitude, position.coords.longitude];       /*for now the location is fixed */
+    return [51.50722, -0.1275]
 }
 
 
@@ -65,10 +66,10 @@ async function getRenderImg() {
     const randomImg = `https://api.unsplash.com/photos/random/`         //until confirmed your acc, use scrimba api
     const key = '&client_id=XYMe11wvf2H6WeG3VzMj5QFbkZlplD0WCK2BCYPGIfI'
     const topic = `?query=${weatherData[3]},${timeOfDay},nature&orientation=portrait`
-    const response = await fetch(randomImg + topic + key);
-    const data = await response.json();
-    // console.log(data);
-    document.getElementById('img-cont').innerHTML = `<img class='img' src='${data.urls.regular}'/>`
+    // const response = await fetch(randomImg + topic + key);
+    // const data = await response.json();
+    
+    // document.getElementById('img-cont').innerHTML = `<img class='img' src='${data.urls.regular}'/>`
 };
 
 

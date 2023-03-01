@@ -3,6 +3,7 @@
 /* backgroound colors: #87CEEB, #800080, #9370DB medium purple is the way*/
 
 body {
+    position: relative;
     background-color: #9370DB;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
@@ -122,6 +123,22 @@ footer {
     margin-top: 1.6em;
     width: 100%;
     text-align: right;
+}
+
+.refresh-btn {
+    position: fixed;
+    top: 360px;
+    left: 490px;        /*490px*/
+    color: white;
+    /* all: unset; */
+    background-color: #7d51b9;
+    border-radius: 20px;
+    /* border-color: none; */
+}
+
+.refresh-btn:hover {
+    background-color: #FF69B4;
+    cursor: pointer;
 }
 
 /* @media(min-width: 600px) {

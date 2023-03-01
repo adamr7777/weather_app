@@ -27,6 +27,8 @@ document.addEventListener('click', (event)=> {
         document.getElementById('btn-today').disabled = false;
         document.getElementById('btn-week').disabled = true;
     }
+
+    
 })
 
 
