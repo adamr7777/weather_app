@@ -45,7 +45,7 @@ async function renderTodayWeather() {
     const weatherData = await getWeatherData();
     
     const mainHtml = new Array(2).fill('0')     /*----why all this trouble though */
-        .map((item, index)=> index === 0? `<h2 id='time' class='time'>${timeData.time}</h2>`:
+        .map((item, index)=> index === 0? `<h1 id='time' class='time'>${timeData.time}</h1>`:
         `<div class='loc-weather'>
         <h2 class='loc-text'>${weatherData[2]}</h2>
         <div class='weather-cont'>
