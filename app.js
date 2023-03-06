@@ -51,12 +51,12 @@ document.addEventListener('click', (event)=> {
             
             refreshWeatherBtn.textContent = '↻';
             
-            const refreshAnimation1 = setInterval(()=> {
+            const refreshAnimation1 = setTimeout(()=> {            /*for pc setInterval()*/
                 if (mouseOver === false) clearInterval(refreshAnimation1)
                 refreshWeatherBtn.textContent = '⟳';
             }, 500)
         
-            const refreshAnimation2 = setInterval(()=> {
+            const refreshAnimation2 = setTimeout(()=> {            /*for pc setInterval()*/
                 if (mouseOver === false) clearInterval(refreshAnimation2)
                 refreshWeatherBtn.textContent = '↻';
             }, 1000)
