@@ -58,6 +58,7 @@ nav {
 }
 
 .main-cont {
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
@@ -73,6 +74,7 @@ nav {
 
 
 .loc-weather {
+    position: relative;
     display: flex;
     flex-direction: column;
     background-color: #7d51b9;
@@ -100,6 +102,10 @@ nav {
     margin: 0;
 }
 
+.big-div {
+    position: relative;
+}
+
 .time {
     letter-spacing: 0.05em;
     font-size:2.5em;
@@ -107,9 +113,11 @@ nav {
 
 
 .img-cont {
+    
     /* min-height: 350px;
     max-height: 350px; */
     height: 450px;
+    
 }
 
 .img {
@@ -126,9 +134,11 @@ footer {
 }
 
 .refresh-btn {
-    position: fixed;
-    top: 360px;
-    left: 490px;        /*490px*/
+    position: absolute;
+    /*top: 360px;
+    left: 490px;*/        /*490px*/
+    top: 260px;
+    right: 8px;;
     color: white;
     /* all: unset; */
     background-color: #7d51b9;
@@ -140,6 +150,38 @@ footer {
     background-color: #FF69B4;
     cursor: pointer;
 }
+
+.weather-refresh {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    background-color: inherit;
+    border: none;
+    font-size: 24px;
+    color: #FF69B4;
+}
+
+.weather-refresh:hover {
+    cursor: pointer;
+}
+
+@keyframes blink {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  .blink {
+    animation-name: blink;
+    animation: blink 0.5s linear;
+    animation-iteration-count: 0.5;
+  }
 
 /* @media(min-width: 600px) {
     .big-div {

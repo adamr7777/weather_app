@@ -1,5 +1,5 @@
 
-export {getTime, getLatlong, getWeatherData, renderTodayWeather, updateInfo, checkDay, getRenderImg};
+export {getTime, getLatlong, getWeatherData, renderTodayWeather, updateInfo, checkDay, getRenderImg, refreshWeatherHandle};
 
 
 function getTime() {
@@ -19,7 +19,7 @@ function checkDay() {
     return hours >= 6 && hours < 12? 'morning': hours >= 12 && hours < 18? 'day': hours >= 18 && hours < 23? 'evening': 'night';
 }
 
-function getLatlong() {     /*add await */
+function getLatlong() {     /*add async  */
     // const position = await new Promise((resolve, reject)=> {
     //     navigator.geolocation.getCurrentPosition(resolve,reject)
     // });
@@ -29,7 +29,7 @@ function getLatlong() {     /*add await */
 
 
 async function getWeatherData() {
-    const location = getLatlong();
+    const location = getLatlong();  /*add await */
    
     const response = await fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${location[0]}&lon=${location[1]}&units=metric`);
     const data = await response.json();         /*catch error */
@@ -47,11 +47,12 @@ async function renderTodayWeather() {
     
     const mainHtml = new Array(2).fill('0')     /*----why all this trouble though */
         .map((item, index)=> index === 0? `<h1 id='time' class='time'>${timeData.time}</h1>`:
-        `<div class='loc-weather'>
-        <h2 class='loc-text'>${weatherData[2]}</h2>
-        <div class='weather-cont'>
-        <img id='weather-img' class='weather-img' src='${weatherData[1]}'/>
-        <h2 id='weather-text'>${weatherData[0]}°</h2>
+        `<div class='loc-weather' id='loc-weather'>
+            <h2 class='loc-text'>${weatherData[2]}</h2>
+            <div class='weather-cont'>
+            <img id='weather-img' class='weather-img' src='${weatherData[1]}'/>
+            <h2 id='weather-text'>${weatherData[0]}°</h2>
+            <button class='weather-refresh' id='weather-refresh'>⟳</button>
         </div>
         </div>`).join('');
 
@@ -71,6 +72,22 @@ async function getRenderImg() {
     
     document.getElementById('img-cont').innerHTML = `<img class='img' src='${data.urls.regular}'/>`
 };
+
+
+async function refreshWeatherHandle() {
+    const weatherData = await getWeatherData(); 
+    document.getElementById('loc-weather')
+        .classList.add('blink');
+    const removeBlink = setTimeout(()=> {
+        document.getElementById('loc-weather')
+            .classList.remove('blink');
+    }, 500)
+    document.getElementById('weather-text')
+        .textContent = weatherData[0]; 
+    document.getElementById('weather-img')
+        .src = weatherData[1];
+}
+
 
 
 
@@ -96,3 +113,5 @@ async function updateInfo() {
         getRenderImg();
     }, 900000) /*15min 900000 */
 } 
+
+
