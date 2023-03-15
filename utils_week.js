@@ -110,8 +110,21 @@ async function getWeatherForecastData() {
                 const tomorrowDate = now.getDate() + 1;
                 // const tomorrowDay = weekDays[now.getDay() + 1];
                 // console.log(tomorrowDate);
-        
-               
+                let index = tomorrowDate === parseInt(day.dt_txt.slice(8, 10))? 'Tomorrow': 
+                    tomorrowDate === parseInt(day.dt_txt.slice(8, 10)) - 1? now.getDay() + 2:
+                    tomorrowDate === parseInt(day.dt_txt.slice(8, 10)) - 2? now.getDay() + 3:
+                    now.getDay() + 4;
+                
+                
+
+                
+                // if (num === 7) num = 0;
+                // if (num === 8) num = 1;
+                // if (num === 9) num = 2;
+                if (index > 6) index = index -7
+                
+                let dayOfWeek = weekDays[index];
+                if (index=== 'Tomorrow') dayOfWeek = 'Tomorrow';
 
                 fourDaysForecastArray.push({
                     dayTemp: day.main.temp, 
@@ -119,11 +132,7 @@ async function getWeatherForecastData() {
                     dayIcon: dayIcon, 
                     nightIcon: nightIcon, 
                     dayDate: day.dt_txt, 
-                    weekDay:  
-                        tomorrowDate === parseInt(day.dt_txt.slice(8, 10))? 'Tomorrow': 
-                            tomorrowDate === parseInt(day.dt_txt.slice(8, 10)) - 1? weekDays[now.getDay() + 2]:
-                            tomorrowDate === parseInt(day.dt_txt.slice(8, 10)) - 2? weekDays[now.getDay() + 3]:
-                            weekDays[now.getDay() + 4], 
+                    weekDay: dayOfWeek,
                     nightDate: night.dt_txt,
                     humidity: day.main.humidity
                 });
