@@ -156,6 +156,8 @@ footer {
     top: 3px;
     right: 3px;
     background-color: inherit;
+    padding: 0;
+    border-radius: 50%;
     border: none;
     font-size: 24px;
     color: #FF69B4;
