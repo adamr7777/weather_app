@@ -3,7 +3,8 @@
     <head>
         <title>WeatherApp</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel='stylesheet' href='styles.css'/>
+        <link rel='stylesheet' href='styles_nav&today.css'/>
+        <link rel='stylesheet' href='styles_week.css'/>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
@@ -22,15 +23,15 @@
                 </ul>
             </nav>
         </header>
-        <main class='big-div'>
+        <main class='big-div' id='big-div'>
             <div class='main-cont' id='main-cont'></div>
             <div class='img-cont' id='img-cont'></div>
             <button class='refresh-btn' id='refresh-btn' >Refresh</button>
+            <p class='author-pic' id='author-pic'></p>
         </main>
         <footer>
             <p>Made by Adomas</p>
         </footer>
-        
         <script src='app.js' type='module'></script>
     </body>
 </html>
